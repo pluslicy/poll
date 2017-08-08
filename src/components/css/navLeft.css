@@ -1,0 +1,23 @@
+.nav-left ul {
+    padding-top: 10px;
+    background-color: #f7f7f7;
+}
+
+.nav-left ul a {
+    height: 45px;
+    line-height: 45px;
+}
+
+.nav-left li {
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.nav-left li.current {
+    background-color: #32415a;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.nav-left li.current a {
+    color: #fb9340;
+}

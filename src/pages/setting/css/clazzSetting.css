@@ -1,0 +1,28 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+    padding: 0
+}
+
+.ctitle,
+.ccontent {
+    padding: 10px 20px;
+}
+
+.clazzSetting .ctitle {
+    height: 60px;
+    border-bottom: 1px solid #cccccc;
+    background: url('../images/noise.white.png');
+}
+
+.ctitle .h2 {
+    font-size: 22px;
+    color: #485b79;
+}
+
+.options {
+    margin: 10px 0;
+}

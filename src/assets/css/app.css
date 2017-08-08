@@ -1,0 +1,59 @@
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+}
+
+header {
+    background-color: #3d4f6d;
+    border-bottom: 1px solid #576a85;
+}
+
+header>div:not(.clear) {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.logo {
+    height: 55px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 55px;
+}
+
+header .searchbar {
+    line-height: 55px;
+    margin: 0 30px;
+}
+
+header .searchbar input {
+    height: 34px;
+    border: none;
+    background-color: #32415a;
+    color: #fff;
+    width: 215px;
+    padding-left: 2em;
+}
+
+header>div.userinfo {
+    float: right;
+    height: 33px;
+    line-height: 33px;
+    font-size: 14px;
+    margin: 11px 22px 0 0;
+    background-color: #32415a;
+    color: #fff;
+    padding: 0 2em;
+}
+
+header>div.userinfo img {
+    width: 33px;
+    height: 33px;
+    vertical-align: middle;
+    margin: 0 10px;
+}

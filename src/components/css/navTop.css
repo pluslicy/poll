@@ -1,0 +1,42 @@
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    outline: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.nav-top>ul {
+    background-color: #465976;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-top>ul>li {
+    width: 100px;
+    float: left;
+    border-right: 1px solid #576a85;
+}
+
+.nav-top>ul>li.current {
+    background-color: #3d4f6d;
+}
+
+.nav-top>ul>li>div {
+    margin-top: 10px;
+}
+
+.nav-top li a {
+    color: #fff;
+}
+
+.navBar {
+    height: 5px;
+    background-color: #fb9337;
+}
