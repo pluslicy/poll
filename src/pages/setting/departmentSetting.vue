@@ -76,6 +76,7 @@ export default {
     */
     updHandler:function(){
       this.$store.dispatch('setDepartmentInfo',this.multipleSelection[0].id).then(()=>{
+        console.log(this.$store.getters.departmentInfo);
         this.form.id = this.$store.getters.departmentInfo.id;
         this.form.name = this.$store.getters.departmentInfo.name;
         this.form.description = this.$store.getters.departmentInfo.description;

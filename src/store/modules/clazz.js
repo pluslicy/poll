@@ -2,7 +2,7 @@
  * 班级管理数据js
  */
 //import clazz from '../../api/clazz'
-import fetch from '../../api/clazz'
+import clazzAPI from '../../api/clazz'
 import * as types from '../mutation-types'
 
 // initial state
@@ -22,15 +22,14 @@ const getters = {
 // actions
 const actions = {
     setClazzInfo({ commit }, id) {
-        fetch.ClazzInfo(id).then(res => {
+        clazzAPI.ClazzInfo(id).then(res => {
             commit(types.SET_CLAZZ_INFO, res.data)
         });
     },
     getClazzData({ commit }) {
-        fetch.Classes().then(function(res) {
+        clazzAPI.Classes().then(function(res) {
             commit(types.GET_CLAZZ_DATA, res.data)
         })
-
     }
 
 }
@@ -41,7 +40,6 @@ const mutations = {
         state.clazzInfo = res;
     },
     [types.GET_CLAZZ_DATA](state, res) {
-        console.log(res);
         state.clazzData = res;
     }
 }

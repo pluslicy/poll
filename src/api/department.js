@@ -1,32 +1,28 @@
 import axios from 'axios'
 import qs from 'qs'
-//拦截器
-axios.interceptors.request.use((config) => {
-    console.log("interceptor....");
-    /*
-    if (config.method === 'post') {
-        config.data = qs.stringify(config.data);
-    }
-    */
-    return config;
-});
 
 //封装
 export default {
     getDepartmentById(id) {
-        return axios.post("http://127.0.0.1:8888/poll/manager/queryDepartmentById.action", { 'department.id': id });
+        /**
+            By default, axios serializes JavaScript objects to JSON. To send data in the application/x-www-form-urlencoded format instead, you can use one of the following options.
+            var qs = require('qs');
+            axios.post('/foo', qs.stringify({ 'bar': 123 }));
+        */
+        //return axios.post("manager/queryDepartmentById.action",qs.stringify( { 'department.id': id }));
+        return axios.post("manager/queryDepartmentById.action",{ 'department.id': id });
     },
     getDepartment() {
-        return axios.get("http://127.0.0.1:8888/poll/manager/queryDepartment.action");
+        return axios.get("manager/queryDepartment.action");
     },
     postDepartment(form) {
         var dep = {};
         for (var key in form) {
             dep['department.' + key] = form[key]
         }
-        return axios.post("http://127.0.0.1:8888/poll/manager/saveOrUpdDepartment.action", dep);
+        return axios.post("manager/saveOrUpdDepartment.action", dep);
     },
     delDepartment(ids) {
-        return axios.post("http://127.0.0.1:8888/poll/manager/batchDelDepartment.action", { ids: ids });
+        return axios.post("manager/batchDelDepartment.action", { ids: ids });
     }
 }

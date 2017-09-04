@@ -7,6 +7,7 @@ import * as actions from './actions'
 import * as getters from './getters'
 import clazz from './modules/clazz'
 import department from './modules/department'
+import teacherStore from './modules/teacherStore'
 
 Vue.use(Vuex)
 
@@ -15,7 +16,8 @@ export default new Vuex.Store({
     getters,
     modules: {
         clazz,
-        department
+        department,
+        teacherStore
     }
 
 })

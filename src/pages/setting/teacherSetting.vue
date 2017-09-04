@@ -13,8 +13,9 @@
       <div class="date">
        <el-table :data="teacherData" style="width: 100%"  @selection-change="handleSelectionChange">
         <el-table-column prop="id" type="selection"></el-table-column>
-        <el-table-column prop="name" label="方向名称"></el-table-column>
-        <el-table-column prop="description" label="描述"></el-table-column>
+        <el-table-column prop="username" label="讲师名字"></el-table-column>
+        <el-table-column prop="telephone" label="联系方式"></el-table-column>
+        <el-table-column prop="department.name" label="所属部门"></el-table-column>
       </el-table>
       </div>
     </div>
@@ -44,7 +45,6 @@ import {mapGetters} from 'vuex';
 export default {
     data(){
       return {
-        teacherData:[],
         multipleSelection:[],
         dialogVisible:false,
         title:'讲师管理',
@@ -53,6 +53,13 @@ export default {
         },
         formLabelWidth:300
       }
+    },
+    computed:{
+      ...mapGetters([
+        'teacherData'])
+    },
+    created(){
+      this.$store.dispatch("fetchTeacherData");
     },
     methods:{
         handlerUpdate(){

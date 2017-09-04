@@ -1,6 +1,7 @@
 /**
  * 部门管理数据js
  */
+import configAPI from '../../api/configAPI'
 import departmentAPI from '../../api/department'
 import * as types from '../mutation-types'
 
@@ -18,6 +19,14 @@ const getters = {
 
 // actions
 const actions = {
+    setDepartmentDataPromise({commit}){
+        return new Promise((resolve,reject)=>{
+            departmentAPI.getDepartment().then((resp) => {
+                commit(types.SET_DEPARTMENT_DATA, resp.data);
+                resolve();
+            });
+        })
+    },
     setDepartmentData({ commit }) {
         departmentAPI.getDepartment().then((resp) => {
             commit(types.SET_DEPARTMENT_DATA, resp.data)

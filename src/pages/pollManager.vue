@@ -33,8 +33,7 @@ export default {
       if(event.target.nodeName == "A"){
         $(event.target).parent().siblings().removeClass('current');
         $(event.target).parent().addClass('current');
-      }
-     
+      } 
     }
   }
 }
