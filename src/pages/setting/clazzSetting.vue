@@ -7,7 +7,7 @@
     <div class="ccontent">
       <div class="options">
         <el-button type="default" @click="dialogVisible = true">添加</el-button>
-        <el-button type="default" @click="dialogVisible = true" :disabled="multipleSelection.length == 0">修改</el-button>
+        <el-button type="default" @click="updHandler" :disabled="multipleSelection.length == 0">修改</el-button>
         <el-button type="default" @click="handlerDelete" :disabled="multipleSelection.length == 0">删除</el-button>
       </div>
       <div class="date">
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <el-dialog :title="title" :visible.sync="dialogVisible" size="small" @open="handlerOpen">
+    <el-dialog :title="title" :visible.sync="dialogVisible" size="small">
       <el-form :model="form">
         <el-form-item label="班级名称" :label-width="formLabelWidth">
           <el-input v-model="form.name" auto-complete="off"></el-input>
@@ -43,8 +43,8 @@
               <el-option
                 v-for="item in teacherData"
                 :key="item.id"
-                :label="item.realname"
-                :value="item.username">
+                :label="item.username"
+                :value="item.id">
               </el-option>
           </el-select>
         </el-form-item>
@@ -88,7 +88,10 @@ export default {
       'teacherData'])
   },
   created () {
-    this.$store.dispatch('getClazzData')
+    this.$store.dispatch('getClazzData');
+    this.$store.dispatch('setDepartmentData');
+    this.$store.dispatch('fetchTeacherData');
+    
   },
   data () {
     return {
@@ -134,9 +137,10 @@ export default {
     }
   },
   methods:{
-    handlerOpen:function(){
-      this.$store.dispatch('setDepartmentData');
-      this.$store.dispatch("fetchTeacherData");
+    updHandler(){
+      this.$store.dispatch('setClazzInfo',this.multipleSelection[0].id).then((resp)=>{
+       
+      });
     },
     toggleSelection(rows) {
         if (rows) {
@@ -159,8 +163,7 @@ export default {
           var ids = this.multipleSelection.map(function(item){
             return item.id
           });
-          console.log(ids);
-          //this.$store.dispatch('delDepartment',ids)
+          this.$store.dispatch('delClazzInfo',ids)
           //成功提示
           this.$message({
             type: 'success',
@@ -174,7 +177,9 @@ export default {
         });
     },
     handlerSubmit(){
-
+      this.$store.dispatch('saveClazz',this.form);
+       //关闭窗口
+      this.dialogVisible = false
     }
   }
 }

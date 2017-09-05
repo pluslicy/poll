@@ -87,7 +87,7 @@ export default {
     /**
      * 处理提交事务
     */
-    handlerSubmit:function(){
+    handlerSubmit(){
       this.$store.dispatch('saveDepartment',this.form)
       this.form = { id: '',name: '',description: ''}
       //关闭窗口
