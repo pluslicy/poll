@@ -4,7 +4,7 @@ import qs from 'qs'
 export default {
     //获取班级信息
     ClazzInfo(id) {
-        return axios.get('manager/getClazzById', { 'clazz.id': id });
+        return axios.post('manager/queryClassById.action', { 'clazz.id': id });
     },
     Classes() {
         return axios.get('manager/queryClass.action');
@@ -24,7 +24,6 @@ export default {
         	}
             dep['clazz.' + key] = form[key]
         }
-    	console.log(dep);
     	return axios.post('manager/saveOrUpdClass.action', dep);
     }
 }

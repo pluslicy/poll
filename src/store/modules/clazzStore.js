@@ -2,7 +2,7 @@
  * 班级管理数据js
  */
 import configAPI from '../../api/configAPI'
-import clazzAPI from '../../api/clazz'
+import clazzAPI from '../../api/clazzAPI'
 import * as types from '../mutation-types'
 
 // initial state
@@ -22,9 +22,13 @@ const getters = {
 // actions
 const actions = {
     setClazzInfo({ commit }, id) {
-        clazzAPI.ClazzInfo(id).then((res) => {
-            commit(types.SET_CLAZZ_INFO, res.data)
+        return new Promise((resolve,reject)=>{
+            clazzAPI.ClazzInfo(id).then((res) => {
+                commit(types.SET_CLAZZ_INFO, res.data)
+                resolve();
+            });
         });
+        
     },
     getClazzData({ commit }) {
         clazzAPI.Classes().then((res)=> {

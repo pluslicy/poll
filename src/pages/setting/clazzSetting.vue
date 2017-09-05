@@ -16,7 +16,7 @@
         <el-table-column prop="name" label="班级名称"></el-table-column>
         <el-table-column prop="department" label="班级方向"></el-table-column>
         <el-table-column prop="area" label="学生来源"></el-table-column>
-        <el-table-column prop="charge.username" label="班主任"></el-table-column>
+        <el-table-column prop="charge" label="班主任"></el-table-column>
         <el-table-column prop="beginDate" label="开班时间"></el-table-column>
         <el-table-column prop="studentNum" label="班级人数"></el-table-column>
       </el-table>
@@ -139,7 +139,8 @@ export default {
   methods:{
     updHandler(){
       this.$store.dispatch('setClazzInfo',this.multipleSelection[0].id).then((resp)=>{
-       
+        this.form = this.$store.getters.clazzInfo;
+        this.dialogVisible = true;
       });
     },
     toggleSelection(rows) {
@@ -178,6 +179,15 @@ export default {
     },
     handlerSubmit(){
       this.$store.dispatch('saveClazz',this.form);
+      this.form = {
+        id:'',
+        name:'',
+        area:'',
+        studentNum:'',
+        beginDate:null,
+        charge:{id:''},
+        department:{id:''}
+      },
        //关闭窗口
       this.dialogVisible = false
     }
