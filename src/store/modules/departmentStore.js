@@ -2,7 +2,7 @@
  * 部门管理数据js
  */
 import configAPI from '../../api/configAPI'
-import departmentAPI from '../../api/department'
+import departmentAPI from '../../api/departmentAPI'
 import * as types from '../mutation-types'
 
 // initial state
