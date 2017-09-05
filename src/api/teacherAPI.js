@@ -4,6 +4,6 @@ import qs from 'qs'
 export default {
     //获取所有老师信息
     queryTeachers() {
-        return axios.get('http://127.0.0.1:8888/poll/manager/queryAllTeachers.action');
+        return axios.get('manager/queryAllTeachers.action');
     }
 }

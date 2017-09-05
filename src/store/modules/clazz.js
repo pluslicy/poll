@@ -1,7 +1,7 @@
 /**
  * 班级管理数据js
  */
-//import clazz from '../../api/clazz'
+import configAPI from '../../api/configAPI'
 import clazzAPI from '../../api/clazz'
 import * as types from '../mutation-types'
 
@@ -22,14 +22,25 @@ const getters = {
 // actions
 const actions = {
     setClazzInfo({ commit }, id) {
-        clazzAPI.ClazzInfo(id).then(res => {
+        clazzAPI.ClazzInfo(id).then((res) => {
             commit(types.SET_CLAZZ_INFO, res.data)
         });
     },
     getClazzData({ commit }) {
-        clazzAPI.Classes().then(function(res) {
+        clazzAPI.Classes().then((res)=> {
             commit(types.GET_CLAZZ_DATA, res.data)
         })
+    },
+    delClazzInfo({dispatch,commit}, ids){
+        clazzAPI.deleteClasses(ids).then((res)=>{
+            dispatch('getClazzData');
+        });
+    },
+    saveClazz({ dispatch, commit }, form) {
+        clazzAPI.postClazz(form).then((resp) => {
+            //添加成功
+            dispatch('getClazzData');
+        });
     }
 
 }
