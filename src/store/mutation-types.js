@@ -8,3 +8,7 @@ export const SET_DEPARTMENT_DATA = 'SET_DEPARTMENT_DATA'
 
 //teacher
 export const FETCH_TEACHER_DATA = 'FETCH_TEACHER_DATA'
+
+//course
+//设置课程数据
+export const SET_COURSES = 'SET_COURSES'

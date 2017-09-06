@@ -8,6 +8,7 @@ import * as getters from './getters'
 import clazzStore from './modules/clazzStore'
 import departmentStore from './modules/departmentStore'
 import teacherStore from './modules/teacherStore'
+import courseStore from './modules/courseStore'
 
 Vue.use(Vuex)
 
@@ -17,7 +18,8 @@ export default new Vuex.Store({
     modules: {
         clazzStore,
         departmentStore,
-        teacherStore
+        teacherStore,
+        courseStore
     }
 
 })

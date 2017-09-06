@@ -8,6 +8,7 @@ import userInfo from '@/pages/userInfo'
 import clazzSetting from '@/pages/setting/clazzSetting'
 import departmentSetting from '@/pages/setting/departmentSetting'
 import teacherSetting from '@/pages/setting/teacherSetting'
+import courseSetting from '@/pages/setting/courseSetting'
 Vue.use(Router)
 
 
@@ -33,6 +34,10 @@ var router = new Router({
                 path: 'tcSetting',
                 name: 'teacherSetting',
                 component: teacherSetting
+            }, {
+                path: 'coSetting',
+                name: 'courseSetting',
+                component: courseSetting
             }]
         },
         {
