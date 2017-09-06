@@ -100,11 +100,7 @@ export default {
       this.multipleSelection = val;
     },
     handleClose(done) {
-        this.$confirm('确认关闭？')
-          .then(_ => {
-            done();
-          })
-          .catch(_ => {});
+        done();
     },
     confirmDel(){
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {

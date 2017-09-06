@@ -75,19 +75,22 @@ export default {
      * 修改
     */
     updHandler:function(){
-      this.$store.dispatch('setDepartmentInfo',this.multipleSelection[0].id).then(()=>{
-        
+      this.$store.dispatch('queryCourseById',this.multipleSelection[0].id).then(()=>{
+        this.form = this.course;
         this.dialogVisible = true;
       })
-     
     },
     /**
      * 处理提交事务
     */
     handlerSubmit(){
-      
+      this.$store.dispatch('saveOrUpdCourse',this.form);
       //关闭窗口
       this.dialogVisible = false
+    },
+    handleClose(done){
+      //关闭模态框
+      done();
     },
     /**
      * 处理点击单选状态
@@ -104,13 +107,14 @@ export default {
           var ids = this.multipleSelection.map(function(item){
             return item.id
           });
-          this.$store.dispatch('delDepartment',ids)
+          this.$store.dispatch('batchDelCourses',ids)
           //成功提示
           this.$message({
             type: 'success',
             message: '删除成功!'
           });
-        }).catch(() => {
+        }).catch((err) => {
+          console.log(err);
           this.$message({
             type: 'info',
             message: '已取消删除'

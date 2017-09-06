@@ -190,6 +190,10 @@ export default {
       },
        //关闭窗口
       this.dialogVisible = false
+    },
+    handleClose(done){
+      //关闭模态框
+      done();
     }
   }
 }

@@ -68,14 +68,15 @@ export default {
         handlerDelete(){
 
         },
-        handleSelectionChange(){
-
-        },
-        handleClose(){
-
+        handleClose(done){
+          //关闭模态框
+          done();
         },
         handlerSubmit(){
 
+        },
+        handleSelectionChange(val) {
+          this.multipleSelection = val;
         }
 
     }
